@@ -124,8 +124,8 @@ Menampilkan source code bot yang dipakai`)
                         m.reply("Maaf, sepertinya ada yang error :" + error.message);
                     }
                     break;
-                case "sc": case "script": case "scbot":
-                    m.reply("Bot ini menggunakan script dari https://github.com/Sansekai/Wa-OpenAI");
+                case "cilik": case "alive":
+                    m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features");
                     break;
                 default: {
                     if (isCmd2 && budy.toLowerCase() != undefined) {
