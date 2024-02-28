@@ -124,11 +124,25 @@ Menampilkan source code bot yang dipakai`)
                         m.reply("Maaf, sepertinya ada yang error :" + error.message);
                     }
                     break;
-                case "cilik": case "alive":
-                    const button = {buttonText: 'owner', description: 'Press the button', options: [{text: 'farid ganteng', data: 'owner'}]};
-                    await m.reply('SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features', {buttons: button});
+                case "cilik":
+                    const button = {
+                        buttonText: 'owner',
+                        description: 'Press the button',
+                        options: [{ text: 'farid ganteng', data: 'owner' }]
+                    };
+                    await client.sendMessage(from, {
+                        displayText: "Pencet tombol untuk melihat siapa yang ganteng!",
+                        contentText: "Ada tombol 'owner' di bawah ini!",
+                        footerText: "Pencet tombol 'owner' untuk melihat siapa yang ganteng!",
+                        buttons: [
+                            { buttonId: 'owner', buttonText: { displayText: 'Owner', text: 'Owner' }, type: 1 }
+                        ],
+                        headerType: 1
+                    }, 'buttonsMessage', { quoted: m });
                     break;
 
+
+                    
                 default: {
                     if (isCmd2 && budy.toLowerCase() != undefined) {
                         if (m.chat.endsWith("broadcast")) return;
