@@ -108,11 +108,7 @@ module.exports = sansekai = async (client, m, chatUpdate) => {
                     
 *(ChatGPT)*
 Cmd: ${prefix}ai 
-Tanyakan apa saja kepada AI. 
-
-*(Source Code Bot)*
-Cmd: ${prefix}sc
-Menampilkan source code bot yang dipakai`)
+Tanyakan apa saja kepada AI.`)
                     break;
                 case "ai": case "openai": case "chatgpt": case "ask":
                     try {
@@ -130,16 +126,18 @@ Menampilkan source code bot yang dipakai`)
                         description: 'Press the button',
                         options: [{ text: 'farid ganteng', data: 'owner' }]
                     };
+    
+    // Kirim pesan dengan tombol
                     await client.sendMessage(from, {
-                        displayText: "Pencet tombol untuk melihat siapa yang ganteng!",
-                        contentText: "Ada tombol 'owner' di bawah ini!",
+                        contentText: "Pencet tombol untuk melihat siapa yang ganteng!",
                         footerText: "Pencet tombol 'owner' untuk melihat siapa yang ganteng!",
                         buttons: [
-                            { buttonId: 'owner', buttonText: { displayText: 'Owner', text: 'Owner' }, type: 1 }
+                            { buttonId: 'owner', buttonText: { displayText: 'Owner' }, type: 1 }
                         ],
                         headerType: 1
                     }, 'buttonsMessage', { quoted: m });
                     break;
+
 
 
                     
