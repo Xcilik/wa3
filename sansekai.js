@@ -134,7 +134,7 @@ Tanyakan apa saja kepada AI.`)
                         buttons: buttons,
                         headerType: 1
                     };
-                    await client.sendMessage(from, buttonMessage, 'buttonsMessage', { quoted: m });
+                    await client.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { quoted: m });
                     break;                    
                     
                 default: {
