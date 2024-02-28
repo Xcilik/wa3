@@ -4,7 +4,7 @@ const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
 const { button } = require('@whiskeysockets/baileys');
-import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
+const { MessageType, MessageOptions, Mimetype } = require('@whiskeysockets/baileys');
 
 class Completion {
     /**
