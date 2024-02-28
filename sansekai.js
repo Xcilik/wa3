@@ -4,6 +4,7 @@ const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
 const { button } = require('@whiskeysockets/baileys');
+import { MessageType, MessageOptions, Mimetype } from '@whiskeysockets/baileys'
 
 class Completion {
     /**
@@ -134,7 +135,7 @@ Tanyakan apa saja kepada AI.`)
                         buttons: buttons,
                         headerType: 1
                     };
-                    await client.sendMessage(from, buttonMessage, { quoted: m });
+                    await client.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { quoted: m });
                     break;                    
                     
                 default: {
