@@ -40,6 +40,7 @@ class Completion {
     }
 }
 
+
 module.exports = sansekai = async (client, m, chatUpdate) => {
     try {
         var body =
@@ -71,7 +72,9 @@ module.exports = sansekai = async (client, m, chatUpdate) => {
         let text = (q = args.join(" "));
         const arg = budy.trim().substring(budy.indexOf(" ") + 1);
         const arg1 = arg.trim().substring(arg.indexOf(" ") + 1);
-
+        const color = (text, color) => {
+          return !color ? chalk.green(text) : chalk.keyword(color)(text);
+        };
         const from = m.chat;
         const reply = m.reply;
         const sender = m.sender;
