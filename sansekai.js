@@ -3,7 +3,7 @@ const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, g
 const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
-const { button } = require('@adiwajshing/baileys');
+const { button } = require('@whiskeysockets/baileys');
 
 class Completion {
     /**
