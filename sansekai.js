@@ -3,6 +3,7 @@ const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, g
 const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
+const { button } = require('@adiwajshing/baileys');
 
 class Completion {
     /**
@@ -121,10 +122,20 @@ Tanyakan apa saja kepada AI.`)
                     }
                     break;
                 case "cilik": case "alive":
-                    const button = {buttonText: 'Click Here', buttonUrl: 'https://your-url.com'};
-                    const buttonsMessage = {footerText: 'Click the button', buttons: [button]};
-                    m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features", buttonsMessage);
+                    m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features");
                     break;
+                case "zi": case "memek":
+                    const buttons = [
+                        { buttonId: 'owner', buttonText: { displayText: 'Owner' }, type: 1 }
+                    ];
+                    const buttonMessage = {
+                        contentText: "Pilih tombol di bawah:",
+                        footerText: "Bot oleh Cilik",
+                        buttons: buttons,
+                        headerType: 1
+                    };
+                    await client.sendMessage(from, buttonMessage, 'buttonsMessage', { quoted: m });
+                    break;                    
                     
                 default: {
                     if (isCmd2 && budy.toLowerCase() != undefined) {
