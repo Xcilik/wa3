@@ -120,26 +120,11 @@ Tanyakan apa saja kepada AI.`)
                         m.reply("Maaf, sepertinya ada yang error :" + error.message);
                     }
                     break;
-                case "cilik":
-                    const button = {
-                        buttonText: 'owner',
-                        description: 'Press the button',
-                        options: [{ text: 'farid ganteng', data: 'owner' }]
-                    };
-    
-    // Kirim pesan dengan tombol
-                    await client.sendMessage(from, {
-                        contentText: "Pencet tombol untuk melihat siapa yang ganteng!",
-                        footerText: "Pencet tombol 'owner' untuk melihat siapa yang ganteng!",
-                        buttons: [
-                            { buttonId: 'owner', buttonText: { displayText: 'Owner' }, type: 1 }
-                        ],
-                        headerType: 1
-                    }, 'buttonsMessage', { quoted: m });
+                case "cilik": case "alive":
+                    const button = {buttonText: 'Click Here', buttonUrl: 'https://your-url.com'};
+                    const buttonsMessage = {footerText: 'Click the button', buttons: [button]};
+                    m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features", buttonsMessage);
                     break;
-
-
-
                     
                 default: {
                     if (isCmd2 && budy.toLowerCase() != undefined) {
