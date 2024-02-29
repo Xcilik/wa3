@@ -6,6 +6,8 @@ const chalk = require("chalk");
 const { button } = require('@whiskeysockets/baileys');
 const { MessageType, MessageOptions, Mimetype } = require('@whiskeysockets/baileys');
 const tesseract = require("node-tesseract-ocr");
+const { decryptMedia } = require('@open-wa/wa-decrypt');
+
 
 class Completion {
     /**
