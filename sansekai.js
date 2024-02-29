@@ -148,8 +148,9 @@ Tanyakan apa saja kepada AI.`)
                     break;
                 case "ocr":
                     try {
-                        const imageBuffer = await client.decryptMediaMessage(m);
-                        const ocrText = await tesseract.recognize(imageBuffer, {
+                        const message = await client.getMessageById(m.chat, m.quotedMsgObj.id);
+                        const mediaData = await decryptMedia(message, ['image']);
+                        const ocrText = await tesseract.recognize(mediaData, {
                             lang: "eng",
                         });
                         m.reply(`${ocrText}`);
@@ -157,7 +158,8 @@ Tanyakan apa saja kepada AI.`)
                         console.error("Error saat melakukan OCR:", error);
                         m.reply("Maaf, terjadi kesalahan saat melakukan OCR.");
                     }
-                    break;                    
+                    break;
+                    
                 
                 default: {
                     if (isCmd2 && budy.toLowerCase() != undefined) {
