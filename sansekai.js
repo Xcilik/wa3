@@ -148,17 +148,22 @@ Tanyakan apa saja kepada AI.`)
                     break;
                 case "ocr":
                     try {
-                        const message = await client.getMessageById(m.chat, m.quotedMsgObj.id);
-                        const mediaData = await decryptMedia(message, ['image']);
-                        const ocrText = await tesseract.recognize(mediaData, {
-                            lang: "eng",
-                        });
-                        m.reply(`${ocrText}`);
+                        if (m.quotedMsgObj && m.quotedMsgObj.id) {
+                            const message = await client.getMessageById(m.chat, m.quotedMsgObj.id);
+                            const mediaData = await decryptMedia(message, ['image']);
+                            const ocrText = await tesseract.recognize(mediaData, {
+                                lang: "eng",
+			    });
+                            m.reply(`${ocrText}`);
+                        } else {
+                            m.reply("Mohon reply pesan yang berisi gambar untuk melakukan OCR.");
+                        }
                     } catch (error) {
                         console.error("Error saat melakukan OCR:", error);
                         m.reply("Maaf, terjadi kesalahan saat melakukan OCR.");
                     }
                     break;
+
                     
                 
                 default: {
