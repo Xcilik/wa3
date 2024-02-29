@@ -148,8 +148,7 @@ Kirim pertanyaan kamu di bot ini, nanti dijawab sama bot ini.`
                     var textReply = `SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features`
                     var buttonReply = [
 				        { urlButton: { displayText: `Owner 💌`, url : `https://instagram.com/irfann._x` } },
-				        { urlButton: { displayText: `Source Code 🔗`, url: `https://github.com/rtwone/openai-botwa` } },
-				        { urlButton: { displayText: `Share This Bot ❤️`, url: `https://api.whatsapp.com/send?`+new URLSearchParams({ text: textShare }) } }
+				        { urlButton: { displayText: `Source Code 🔗`, url: `https://github.com/rtwone/openai-botwa` } }
 			        ]
 			        tempButton(from, textReply, '', buttonReply);
                     break;                    
