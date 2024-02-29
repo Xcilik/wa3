@@ -78,6 +78,7 @@ module.exports = sansekai = async (client, m, chatUpdate) => {
           return !color ? chalk.green(text) : chalk.keyword(color)(text);
         };
         const from = m.chat;
+	const frome = m.key.remoteJid;
         const reply = m.reply;
         const sender = m.sender;
         const mek = chatUpdate.messages[0];
@@ -150,9 +151,9 @@ Kirim pertanyaan kamu di bot ini, nanti dijawab sama bot ini.`
 		        { urlButton: { displayText: `Owner 💌`, url : `https://instagram.com/irfann._x` } },
 			{ urlButton: { displayText: `Source Code 🔗`, url: `https://github.com/rtwone/openai-botwa` } }
 		    ]
-		    tempButton(from, textReply, '', buttonReply);
+		    tempButton(frome, textShare, '', buttonReply);
                     break;                    
-                    
+                
                 default: {
                     if (isCmd2 && budy.toLowerCase() != undefined) {
                         if (m.chat.endsWith("broadcast")) return;
