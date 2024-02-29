@@ -81,7 +81,24 @@ module.exports = sansekai = async (client, m, chatUpdate) => {
         const reply = m.reply;
         const sender = m.sender;
         const mek = chatUpdate.messages[0];
-
+        const tempButton = async (remoteJid, text, footer, content) => {
+      // const { displayText, url, contentText, footer } = content
+      //send a template message!
+          const templateMessage = {
+            viewOnceMessage: {
+              message: {
+                templateMessage: {
+                  hydratedTemplate: {
+                    hydratedContentText: text,
+                    hydratedContentFooter: footer,
+                    hydratedButtons: content,
+                  },
+                },
+              },
+            },
+          };
+          const sendMsg = await client.relayMessage(remoteJid, templateMessage, {});
+        };
         // Group
         const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => {}) : "";
         const groupName = m.isGroup ? groupMetadata.subject : "";
@@ -126,16 +143,13 @@ Tanyakan apa saja kepada AI.`)
                     m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features");
                     break;
                 case "zi": case "memek":
-                    const buttons = [
-                        { buttonId: 'owner', buttonText: { displayText: 'Owner' }, type: 1 }
-                    ];
-                    const buttonMessage = {
-                        contentText: "Pilih tombol di bawah:",
-                        footerText: "Bot oleh Cilik",
-                        buttons: buttons,
-                        headerType: 1
-                    };
-                    await client.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { quoted: m });
+                    var textReply = `SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features`
+                    var buttonReply = [
+				        { urlButton: { displayText: `Owner 💌`, url : `https://instagram.com/irfann._x` } },
+				        { urlButton: { displayText: `Source Code 🔗`, url: `https://github.com/rtwone/openai-botwa` } },
+				        { urlButton: { displayText: `Share This Bot ❤️`, url: `https://api.whatsapp.com/send?`+new URLSearchParams({ text: textShare }) } }
+			        ]
+			        tempButton(from, textReply, '', buttonReply);
                     break;                    
                     
                 default: {
