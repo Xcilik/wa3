@@ -5,6 +5,7 @@ const util = require("util");
 const chalk = require("chalk");
 const { button } = require('@whiskeysockets/baileys');
 const { MessageType, MessageOptions, Mimetype } = require('@whiskeysockets/baileys');
+const tesseract = require("node-tesseract-ocr");
 
 class Completion {
     /**
@@ -143,15 +144,17 @@ Tanyakan apa saja kepada AI.`)
                 case "cilik": case "alive":
                     m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features");
                     break;
-                case "zi": case "memek":
-		    var textShare = `Hei, aku ada Chat Bot WhatsApp OpenAI nih.
-Kirim pertanyaan kamu di bot ini, nanti dijawab sama bot ini.`			    
-                    var textReply = `SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features`
-                    var buttonReply = [
-		        { urlButton: { displayText: `Owner 💌`, url : `https://instagram.com/irfann._x` } },
-			{ urlButton: { displayText: `Source Code 🔗`, url: `https://github.com/rtwone/openai-botwa` } }
-		    ]
-		    tempButton(frome, textShare, '', buttonReply);
+                case "ocr":
+                    try {
+                        const imageBuffer = await client.decryptMediaMessage(m);
+                        const ocrText = await tesseract.recognize(imageBuffer, {
+                            lang: "eng",
+                        });
+                        m.reply(`${ocrText}`);
+                    } catch (error) {
+                        console.error("Error saat melakukan OCR:", error);
+                        m.reply("Maaf, terjadi kesalahan saat melakukan OCR.");
+                    }
                     break;                    
                 
                 default: {
