@@ -143,6 +143,10 @@ Tanyakan apa saja kepada AI.`)
                     m.reply("SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features");
                     break;
                 case "zi": case "memek":
+		    var textShare = `Hei, aku ada Chat Bot WhatsApp OpenAI nih.
+Kirim pertanyaan kamu di bot ini, nanti dijawab sama bot ini.
+
+https://wa.me/${botNumber.split("@")[0]}?text=/start`			    
                     var textReply = `SmallUbot\n    status: smallbot | founder\n    • expired: 04-August-2026\n    • server: 1\n    • dc_id: 5\n    • ping_dc: 4.792 ms\n    • cilik_uptime: 15h:24m:9s\n\n® small bot, but lots of features`
                     var buttonReply = [
 				        { urlButton: { displayText: `Owner 💌`, url : `https://instagram.com/irfann._x` } },
